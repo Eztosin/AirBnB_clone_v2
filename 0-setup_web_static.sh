@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # a Bash script that sets up web servers for the deployment of web_static
 
-if !dpkg -s nginx > /dev/null 2>&1; then
+if ! dpkg -s nginx > /dev/null 2>&1; then
     sudo apt-get update
     sudo apt-get -y install nginx
     sudo ufw allow 'Nginx HTTP'
