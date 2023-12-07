@@ -25,7 +25,7 @@ def do_deploy(archive_path):
         return False
 
     archive_name = os.path.basename(archive_path)
-    archive_folder = "/data/web_static/releases/" + archive_name[:-4]
+    archive_folder = "/data/web_static/releases/" + archive_name[-18:-4]
 
     try:
         put(archive_path, "/tmp/")
