@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """contains a Fabric script (based on the file 2-do_deploy_web_static.py)
 """
+
 from fabric import task, Connection
 from datetime import datetime
 
@@ -19,6 +20,7 @@ def do_pack():
         return None
     return path
 
+
 @task
 def deploy(c):
     """
@@ -27,17 +29,21 @@ def deploy(c):
     archive_path = do_pack()
     if not archive_path:
         return False
-    
+
     for host in env.hosts:
         with Connection(host) as conn:
             conn.put(archive_path, '/tmp/')
             timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-            release_folder = "/data/web_static/releases/web_static_{}/".format(timestamp)
+            release_folder = "/data/web_static/releases/web_static_{}/"
+            .format(timestamp)
             conn.run('mkdir -p {}'.format(release_folder))
-            conn.run('tar -xzf /tmp/web_static_{}.tgz -C {}'.format(timestamp, release_folder))
+            conn.run('tar -xzf /tmp/web_static_{}.tgz -C {}'
+                     .format(timestamp, release_folder))
             conn.run('rm /tmp/web_static_{}.tgz'.format(timestamp))
-            conn.run('mv {}web_static/* {}'.format(release_folder, release_folder))
+            conn.run('mv {}web_static/* {}'.format(release_folder,
+                                                   release_folder))
             conn.run('rm -rf {}web_static'.format(release_folder))
             conn.run('rm -rf /data/web_static/current')
-            conn.run('ln -s {} /data/web_static/current'.format(release_folder))
+            conn.run('ln -s {} /data/web_static/current'
+                     .format(release_folder))
     return True
