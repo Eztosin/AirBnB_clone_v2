@@ -37,8 +37,7 @@ def do_deploy(archive_path):
                                                 archive_folder))
         run("sudo rm -rf {}/web_static".format(archive_folder))
         run("sudo rm -rf /data/web_static/current")
-        run("sudo ln -s {} /data/web_static/current".
-            format(archive_folder))
+        run("sudo ln -s {} /data/web_static/current".format(archive_folder))
         return True
     except Exception:
         return False
