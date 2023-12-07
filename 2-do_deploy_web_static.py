@@ -30,7 +30,7 @@ def do_deploy(archive_path):
     try:
         put(archive_path, "/tmp/")
         run("sudo mkdir -p {}".format(archive_folder))
-        run("tar -xzf /tmp/{} -C {}".format(archive_name,
+        run("sudo tar -xzf /tmp/{} -C {}".format(archive_name,
                                             archive_folder))
         run("sudo rm /tmp/{}".format(archive_name))
         run("sudo mv {}/web_static/* {}".format(archive_folder,
