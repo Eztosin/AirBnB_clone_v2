@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""a Fabric script that creates and distributes an archive to
+   your web servers, using the function deploy
+"""
 from fabric import task, Connection
 from datetime import datetime
 from fabric.operations import local as lcl
