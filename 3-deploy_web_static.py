@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-"""a Fabric script (based on the that creates and distributes an
-   archive to your web servers, using the function deploy
-"""
-
 from fabric import task, Connection
 from datetime import datetime
+
 
 env.hosts = ['54.90.26.239', '184.72.101.54']
 
