@@ -9,7 +9,6 @@ from fabric.operations import local as lcl
 env.hosts = ["54.90.26.239", "184.72.101.54"]
 
 
-@task
 def do_pack():
     """
     Creates a compressed .tgz file from the contents of the
@@ -24,7 +23,6 @@ def do_pack():
     return path
 
 
-@task
 def deploy(c):
     """
     Packs and deploys the web_static folder to web servers
