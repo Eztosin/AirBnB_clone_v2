@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""contains a Fabric script (based on the file 2-do_deploy_web_static.py)
+"""contains a Fabric script (based on the
+   file 2-do_deploy_web_static.py)
 """
 
 from fabric import task, Connection
@@ -10,7 +11,8 @@ env.hosts = ['54.90.26.239', '184.72.101.54']
 
 def do_pack():
     """
-    Creates a compressed .tgz file from the contents of the web_static folder
+    Creates a compressed .tgz file from the contents of the
+    web_static folder
     """
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     local("mkdir -p versions")
