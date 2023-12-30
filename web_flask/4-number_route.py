@@ -34,7 +34,7 @@ def display_python(text="is cool"):
 @app.route('/number/<int:n>', strict_slashes=False)
 def display_num(n):
     """display n is a number only if n is an integer"""
-    if type(n) is int:
+    if isinstance(n, int):
         return "{}".format(n)
 
 
