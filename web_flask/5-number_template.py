@@ -37,6 +37,7 @@ def display_num(n):
     if type(n) is int:
         return "{} is a number".format(n)
 
+
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def display_html(n=None):
     """display a HTML page only if n is an integer"""
