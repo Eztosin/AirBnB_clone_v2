@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """contains a script that starts a Flask web application
+using storage to fetch data from the storage engine
 """
 
 from flask import Flask, render_template
