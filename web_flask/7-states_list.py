@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-a script that starts a Flask web application must be listening on 0.0.0.0, port 5000
+a script that starts a Flask web application must be listening
+on 0.0.0.0, port 5000
 """
 from flask import Flask, render_template
 from models import storage, State
